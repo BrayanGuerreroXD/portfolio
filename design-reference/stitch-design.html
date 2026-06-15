@@ -1,0 +1,415 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Brayan Guerrero | Software Engineer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet" type="text/css">
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 3px solid rgba(248, 250, 252, 0.2);
+            border-radius: 1.5rem;
+        }
+        
+        .glass-card-hover:hover {
+            border-color: rgba(109, 40, 217, 0.8);
+            box-shadow: 0 0 20px rgba(109, 40, 217, 0.4);
+            transform: translateY(-4px) rotate(1deg);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        @keyframes float-reverse {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(15px) rotate(-2deg); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-float-reverse {
+            animation: float-reverse 7s ease-in-out infinite;
+        }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+
+        /* Typography overrides to match design system font definitions */
+        .font-headline-xl { font-family: 'Fredoka', sans-serif; }
+        .font-headline-lg { font-family: 'Fredoka', sans-serif; }
+        .font-headline-md { font-family: 'Fredoka', sans-serif; }
+        .font-body-lg { font-family: 'Fredoka', sans-serif; }
+        .font-body-md { font-family: 'Fredoka', sans-serif; }
+        .font-label-mono { font-family: 'Space Mono', monospace; }
+        
+        /* Custom scrollbar for playful feel */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #101415;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6d28d9;
+            border-radius: 10px;
+            border: 3px solid #101415;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#cccedd",
+                        "on-primary": "#3f008d",
+                        "surface-dim": "#101415",
+                        "primary-fixed": "#ebddff",
+                        "on-error": "#690005",
+                        "on-background": "#e0e3e5",
+                        "secondary": "#5de6ff",
+                        "tertiary-container": "#545864",
+                        "on-secondary-fixed": "#001f25",
+                        "outline": "#958da1",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#191c1e",
+                        "surface-variant": "#323537",
+                        "on-primary-container": "#dac5ff",
+                        "tertiary-fixed-dim": "#c3c6d4",
+                        "secondary-container": "#00cbe6",
+                        "surface-bright": "#363a3b",
+                        "on-primary-fixed-variant": "#5b00c5",
+                        "on-primary-fixed": "#250059",
+                        "surface-container": "#1d2022",
+                        "surface-container-lowest": "#0b0f10",
+                        "inverse-on-surface": "#2d3133",
+                        "inverse-surface": "#e0e3e5",
+                        "primary": "#d3bbff",
+                        "inverse-primary": "#7331df",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#a2eeff",
+                        "on-secondary-container": "#00515d",
+                        "tertiary": "#c3c6d4",
+                        "on-tertiary-fixed": "#171b26",
+                        "on-tertiary-fixed-variant": "#434652",
+                        "background": "#101415",
+                        "primary-fixed-dim": "#d3bbff",
+                        "secondary-fixed-dim": "#2fd9f4",
+                        "on-secondary-fixed-variant": "#004e5a",
+                        "primary-container": "#6d28d9",
+                        "surface": "#101415",
+                        "on-surface": "#e0e3e5",
+                        "surface-container-highest": "#323537",
+                        "surface-container-high": "#272a2c",
+                        "tertiary-fixed": "#dfe2f1",
+                        "surface-tint": "#d3bbff",
+                        "outline-variant": "#4a4455",
+                        "on-tertiary": "#2c303b",
+                        "on-surface-variant": "#ccc3d7",
+                        "error-container": "#93000a",
+                        "on-secondary": "#00363e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "container-max": "1200px",
+                        "base": "8px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Fredoka"],
+                        "body-md": ["Fredoka"],
+                        "headline-lg": ["Fredoka"],
+                        "body-lg": ["Fredoka"],
+                        "label-mono": ["Space Mono"],
+                        "caption": ["Fredoka"],
+                        "headline-lg-mobile": ["Fredoka"],
+                        "headline-md": ["Fredoka"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["60px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "body-md": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["36px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["20px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-mono": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "caption": ["14px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Global Background -->
+<div class="fixed inset-0 z-[-1] pointer-events-none bg-black">
+<div class="absolute inset-0 bg-cover bg-center opacity-60 blur-lg animate-float-reverse" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCJmtfQWiFj4eyKF2YsFbZy6rVsMGtqrEc_ZuiJHHFe-hfEmo-836auPwQfui_CGuAbKshFoTlNMzGjlgdnCcCJk1RhohfEV9ZjeCCxTEwYbfDw2MA-oiCDF3qn7quuRxT1RLRzTIQunDw8a53Z92qhdo2i4-isxZRd_4qQ0EgjjJL8jOpn80431RzUfvxknoeOry5ZSSbhJvONGynUTWKI15mBWIgtB8EtfB2lUNK8KtWQ4csb66gh0U5sa87GLFkeEev9IeYwsJo'); transform-origin: center; transform: scale(1.15);"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background mix-blend-multiply"></div>
+<div class="absolute inset-0 opacity-30 pointer-events-none" style="background-image: radial-gradient(1px 1px at 20px 30px, rgb(255, 255, 255), rgba(0, 0, 0, 0)), radial-gradient(1px 1px at 40px 70px, rgb(255, 255, 255), rgba(0, 0, 0, 0)), radial-gradient(2px 2px at 50px 160px, rgb(255, 255, 255), rgba(0, 0, 0, 0)), radial-gradient(2px 2px at 90px 40px, rgb(255, 255, 255), rgba(0, 0, 0, 0)), radial-gradient(1px 1px at 130px 80px, rgb(255, 255, 255), rgba(0, 0, 0, 0)), radial-gradient(1px 1px at 160px 120px, rgb(255, 255, 255), rgba(0, 0, 0, 0)); background-repeat: repeat; background-size: 200px 200px;"></div></div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md shadow-[0_0_20px_rgba(211,187,255,0.1)] border-b-4 border-dashed border-primary/30 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-3 max-w-container-max mx-auto">
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-12 h-12 rounded-full overflow-hidden border-4 border-secondary group-hover:scale-110 transition-transform duration-300">
+<img alt="Alien Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoWcxHfQCP6U7S9jnrt4LcRjZEbWxD8bCsEEuc6Iuu2dcO558kWC2TBIqRCn293YUmOtI4xJMl2Dff050Z60ap22L5ww6rQ1M3GphPJLk7g5em3dulUq9F9hqUXVPI6cRPT0isz20qFm_pVZczbuLNhVAkAmF4A6R-ZFwCTIyQtJ-ucgcV3X1FqLUZAr1S5BGYd6kgYsI_JIiBSAExKgAvcDgVflUvCa1wiFDOmNoOcT2MmS0_EbCZ3Z59gkwZ4ZJ8W4ejq7CYC40">
+</div>
+</a>
+<nav class="hidden md:flex items-center space-x-8 font-label-mono text-label-mono">
+<a class="text-secondary border-b-2 border-dashed border-secondary pb-1" href="#about">About</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-primary/10 px-3 py-2 rounded-xl border-2 border-transparent hover:border-primary border-dashed transition-all duration-300" href="#projects">Projects</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-primary/10 px-3 py-2 rounded-xl border-2 border-transparent hover:border-primary border-dashed transition-all duration-300" href="#skills">Skills</a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-primary/10 px-3 py-2 rounded-xl border-2 border-transparent hover:border-primary border-dashed transition-all duration-300" href="#contact">Contact</a>
+</nav>
+<button class="hidden md:flex items-center justify-center px-6 py-3 rounded-full border-4 border-primary-container bg-primary-container/20 text-on-primary-container font-label-mono text-label-mono hover:bg-primary hover:text-on-primary transition-all duration-300 shadow-[0_0_15px_rgba(109,40,217,0.3)] hover:shadow-[0_0_25px_rgba(211,187,255,0.5)] transform hover:-translate-y-1">
+            Connect
+        </button>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-surface p-2 border-2 border-dashed border-on-surface rounded-lg">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-section-gap">
+<!-- Hero Section -->
+<section class="min-h-[80vh] flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 animate-fade-in relative z-10 pt-12" style="animation-play-state: running;">
+<div class="flex-1 flex flex-col space-y-8 relative">
+<!-- Floating UFO Element -->
+<div class="absolute -top-16 -left-8 w-24 h-24 rounded-full overflow-hidden border-4 border-dashed border-secondary animate-float shadow-[0_0_20px_rgba(255,255,255,0.6)] z-20 hidden sm:block">
+<img alt="UFO" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo17anEJtuKoWxhEd7XpOaBlI27SYYuYI-90Zx-6Pn-e1elN0OmSkJEXkOSDdhWhzdvHM87MweqKdHg5g8HpKC_uUPII3sck6pO3KQRAP7cEzncM7_HIvSwxCVdAkN04-VjoX2frZWvZb3FTajAl8kRBXsNI98wTqOjAZKArXwMG7mOgviK3PWWBWDdCXo8gko5GPB3D9cKNECVV7NufjXwHGxG065zI31uHWmGSSMAO3aTf4IRI1WjUZwm5bVPq0RHvu5Yy5H1EwYyQ" style="object-position: 50% 70%;">
+</div>
+<div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full border-2 border-dashed border-secondary/50 bg-surface/60 w-fit transform -rotate-2">
+<span class="w-3 h-3 rounded-full bg-secondary animate-bounce"></span>
+<span class="font-label-mono text-label-mono text-secondary">System Online</span>
+</div>
+<div>
+<h1 class="font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface mb-6">
+                    Hi, I'm <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary inline-block animate-float-reverse">Brayan Guerrero</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl bg-surface/50 p-4 rounded-2xl border-2 border-dashed border-outline-variant/30 backdrop-blur-sm">
+                    Software Engineer building intelligent systems and exploring the future with AI.
+                </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-6 pt-4">
+<a class="px-8 py-4 rounded-full border-4 border-primary-container bg-primary-container/20 text-on-primary-container font-headline-md text-headline-md text-center hover:bg-primary hover:text-on-primary transition-all duration-300 shadow-[0_0_15px_rgba(109,40,217,0.3)] transform hover:-translate-y-2 hover:rotate-2" href="#projects">
+                    View Projects
+                </a>
+<a class="px-8 py-4 rounded-full border-4 border-dashed border-secondary text-secondary font-headline-md text-headline-md text-center hover:bg-secondary/10 hover:shadow-[0_0_20px_rgba(93,230,255,0.2)] transition-all duration-300 transform hover:-translate-y-2 hover:-rotate-2" href="#contact">
+                    Contact
+                </a>
+</div>
+</div>
+<div class="flex-1 relative w-full max-w-lg flex justify-center items-center">
+<div class="absolute inset-0 bg-primary/20 rounded-full blur-[100px] animate-pulse"></div>
+<img alt="Besgo the alien" class="w-full h-auto object-contain animate-float drop-shadow-[0_0_30px_rgba(93,230,255,0.3)] relative z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxct2Tmp_Is7xgGT2LfKV5DliNL5YeUB8BUWh_YVFYsbfvqbuyXNEBNSZmsPZQjAnNAdiQIb5-bFBz9odUnf0feUn094NkYbAG6Xa_1SvDZp7tgxLcxwFKfOlvW8GslBnUdhoRFZdlR3y4O0GHZwIZEEaFMPiY3nrNJlPcyNZhsdSfzwmaMBfNR5pcKtWXdIn4_KcUeUs2wCPa5M1ixHCeHqQb_sxkj-Ichb5Erhg9nimgszBHF-jlcqr4K0AOFZpy9tQfcEKBs_w">
+</div>
+</section>
+<!-- Bio Section -->
+<section class="mt-20 animate-fade-in delay-100 relative z-10" id="about" style="animation-play-state: running;">
+<div class="glass-panel p-8 md:p-12 relative overflow-hidden group border-4 border-dashed border-primary/50">
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary/10 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/2 group-hover:bg-secondary/20 transition-all duration-500"></div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6 inline-block transform -rotate-1 text-primary">About Me</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-4xl">
+                I'm a software developer focused on building scalable solutions, robust backend systems, and AI-driven integrations. I thrive on complex architectural challenges and cutting-edge machine learning applications, exploring the code galaxy one line at a time!
+            </p>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="mt-section-gap animate-fade-in delay-200 relative z-10" id="projects" style="animation-play-state: running;">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-12 flex items-center justify-between">
+<span class="text-secondary transform rotate-1 inline-block">Projects</span>
+<span class="font-label-mono text-label-mono text-secondary text-sm font-normal px-4 py-2 border-2 border-dashed border-secondary rounded-full bg-surface/50">CLASSIFIED_DATA</span>
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Project Card 1 -->
+<div class="glass-panel aspect-video flex flex-col items-center justify-center p-8 text-center glass-card-hover border-4 border-dashed border-outline-variant/50 relative overflow-hidden group">
+<span class="material-symbols-outlined text-primary text-5xl mb-4 animate-float group-hover:scale-125 transition-transform" data-icon="rocket_launch">rocket_launch</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Project Alpha</h3>
+<p class="font-body-md text-body-md text-on-surface-variant font-label-mono">New mission coming soon...</p>
+</div>
+<!-- Project Card 2 -->
+<div class="glass-panel aspect-video flex flex-col items-center justify-center p-8 text-center glass-card-hover border-4 border-dashed border-outline-variant/50 relative overflow-hidden group">
+<span class="material-symbols-outlined text-secondary text-5xl mb-4 animate-float-reverse group-hover:scale-125 transition-transform" data-icon="rocket_launch">rocket_launch</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Project Beta</h3>
+<p class="font-body-md text-body-md text-on-surface-variant font-label-mono">New mission coming soon...</p>
+</div>
+<!-- Project Card 3 -->
+<div class="glass-panel aspect-video flex flex-col items-center justify-center p-8 text-center glass-card-hover border-4 border-dashed border-outline-variant/50 relative overflow-hidden group">
+<span class="material-symbols-outlined text-primary text-5xl mb-4 animate-float group-hover:scale-125 transition-transform" data-icon="rocket_launch">rocket_launch</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Project Gamma</h3>
+<p class="font-body-md text-body-md text-on-surface-variant font-label-mono">New mission coming soon...</p>
+</div>
+<!-- Project Card 4 -->
+<div class="glass-panel aspect-video flex flex-col items-center justify-center p-8 text-center glass-card-hover border-4 border-dashed border-outline-variant/50 relative overflow-hidden group">
+<span class="material-symbols-outlined text-secondary text-5xl mb-4 animate-float-reverse group-hover:scale-125 transition-transform" data-icon="rocket_launch">rocket_launch</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Project Delta</h3>
+<p class="font-body-md text-body-md text-on-surface-variant font-label-mono">New mission coming soon...</p>
+</div>
+</div>
+<div class="mt-12 text-center">
+<p class="font-body-md text-body-md text-on-surface-variant opacity-80 bg-surface/50 inline-block px-6 py-3 rounded-full border-2 border-dashed border-outline-variant/30">
+                More projects will be added soon. Stay tuned for upcoming launches! 🚀
+            </p>
+</div>
+</section>
+<!-- Tech Stack Section -->
+<section class="mt-section-gap animate-fade-in delay-300 relative z-10" id="skills" style="animation-play-state: running;">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-12 text-primary-fixed transform -rotate-1">Tech Stack</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Backend -->
+<div class="glass-panel p-8 glass-card-hover transition-all duration-300 border-4 border-dashed border-primary/40">
+<div class="flex items-center space-x-3 mb-8">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="dns">dns</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Backend</h3>
+</div>
+<div class="flex flex-wrap gap-4">
+<span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface/80 text-on-surface font-body-md border-2 border-outline-variant/50 hover:border-primary hover:scale-105 transition-all">
+<i class="devicon-java-plain colored text-xl"></i> Java
+                    </span>
+<span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface/80 text-on-surface font-body-md border-2 border-outline-variant/50 hover:border-primary hover:scale-105 transition-all">
+<i class="devicon-spring-original colored text-xl"></i> Spring Boot
+                    </span>
+<span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface/80 text-on-surface font-body-md border-2 border-outline-variant/50 hover:border-primary hover:scale-105 transition-all">
+<i class="devicon-postgresql-plain colored text-xl"></i> PostgreSQL
+                    </span>
+<span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface/80 text-on-surface font-body-md border-2 border-outline-variant/50 hover:border-primary hover:scale-105 transition-all">
+<i class="devicon-typescript-plain colored text-xl"></i> TypeScript
+                    </span>
+<span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface/80 text-on-surface font-body-md border-2 border-outline-variant/50 hover:border-primary hover:scale-105 transition-all">
+<i class="devicon-nestjs-plain colored text-xl"></i> NestJS
+                    </span>
+<span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface/80 text-on-surface font-body-md border-2 border-outline-variant/50 hover:border-primary hover:scale-105 transition-all">
+<i class="devicon-express-original text-on-surface text-xl"></i> ExpressJS
+                    </span>
+</div>
+</div>
+<!-- Frontend -->
+<div class="glass-panel p-8 glass-card-hover transition-all duration-300 border-4 border-dashed border-secondary/40">
+<div class="flex items-center space-x-3 mb-8">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="desktop_windows">desktop_windows</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Frontend</h3>
+</div>
+<div class="flex flex-wrap gap-4">
+<span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface/80 text-on-surface font-body-md border-2 border-secondary/30 hover:border-secondary hover:scale-105 transition-all">
+<i class="devicon-react-original colored text-xl"></i> React
+                    </span>
+<span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface/80 text-on-surface font-body-md border-2 border-secondary/30 hover:border-secondary hover:scale-105 transition-all">
+<i class="devicon-typescript-plain colored text-xl"></i> TypeScript
+                    </span>
+<span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface/80 text-on-surface font-body-md border-2 border-secondary/30 hover:border-secondary hover:scale-105 transition-all">
+<i class="devicon-materialui-plain colored text-xl"></i> Material UI
+                    </span>
+</div>
+</div>
+<!-- Cloud & DevOps -->
+<div class="glass-panel p-8 glass-card-hover transition-all duration-300 border-4 border-dashed border-primary-fixed-dim/40">
+<div class="flex items-center space-x-3 mb-8">
+<span class="material-symbols-outlined text-primary-fixed-dim text-3xl" data-icon="cloud">cloud</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Cloud &amp; DevOps</h3>
+</div>
+<div class="flex flex-wrap gap-4">
+<span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface/80 text-on-surface font-body-md border-2 border-primary/30 hover:border-primary-fixed-dim hover:scale-105 transition-all">
+<i class="devicon-docker-plain colored text-xl"></i> Docker
+                    </span>
+<span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface/80 text-on-surface font-body-md border-2 border-primary/30 hover:border-primary-fixed-dim hover:scale-105 transition-all">
+<i class="devicon-kubernetes-plain colored text-xl"></i> Kubernetes
+                    </span>
+<span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface/80 text-on-surface font-body-md border-2 border-primary/30 hover:border-primary-fixed-dim hover:scale-105 transition-all">
+<i class="devicon-amazonwebservices-plain-wordmark colored text-xl"></i> AWS
+                    </span>
+</div>
+</div>
+<!-- AI -->
+<div class="glass-panel p-8 glass-card-hover transition-all duration-300 border-4 border-dashed border-secondary-container/40">
+<div class="flex items-center space-x-3 mb-8">
+<span class="material-symbols-outlined text-secondary-container text-3xl" data-icon="memory">memory</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">AI</h3>
+</div>
+<div class="flex flex-wrap gap-4">
+<span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface/80 text-on-surface font-body-md border-2 border-secondary-container/30 hover:border-secondary-container hover:scale-105 transition-all">
+<span class="material-symbols-outlined text-xl text-secondary-container">psychology</span> LLMs
+                    </span>
+<span class="flex items-center gap-2 px-4 py-2 rounded-xl bg-surface/80 text-on-surface font-body-md border-2 border-secondary-container/30 hover:border-secondary-container hover:scale-105 transition-all">
+<span class="material-symbols-outlined text-xl text-secondary-container">smart_toy</span> AI Agents
+                    </span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-base border-t-4 border-dashed border-outline-variant/30 bg-surface/80 backdrop-blur-md transition-opacity duration-200 mt-section-gap z-10 relative">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-12 max-w-container-max mx-auto gap-6">
+<div class="flex flex-col items-center md:items-start space-y-2">
+<div class="font-headline-md text-headline-md text-secondary">
+                © 2024 Brayan Guerrero
+            </div>
+<p class="font-body-md text-caption text-on-surface-variant">
+                Exploring new galaxies of software, one project at a time. 🪐
+            </p>
+</div>
+<div class="flex space-x-6 font-headline-md text-body-lg">
+<a class="text-on-tertiary-container hover:text-secondary hover:scale-110 transition-transform" href="#">GitHub</a>
+<a class="text-on-tertiary-container hover:text-secondary hover:scale-110 transition-transform" href="#">LinkedIn</a>
+<a class="text-on-tertiary-container hover:text-secondary hover:scale-110 transition-transform flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="terminal">terminal</span>
+                Terminal
+            </a>
+</div>
+</div>
+</footer>
+<script>
+    // Simple intersection observer for scroll animations
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-fade-in').forEach(element => {
+        element.style.animationPlayState = 'paused';
+        observer.observe(element);
+    });
+</script>
+</body></html>
