@@ -27,6 +27,21 @@ npm run build    # type-check + production build to dist/
 npm run preview  # preview the production build
 ```
 
+## Deployment (GitHub Pages)
+
+The site deploys automatically to GitHub Pages via GitHub Actions
+(`.github/workflows/deploy.yml`) on every push to `main`, and is served at:
+
+> https://brayanguerreroxd.github.io/portfolio/
+
+The production `base` is set to `/portfolio/` in `vite.config.ts` to match the
+repository name. **If you rename the repo, update that `base` value** (and the
+URL above) accordingly. Public assets are resolved through `src/utils/asset.ts`
+so they keep working under the sub-path.
+
+One-time setup in the GitHub repo: **Settings → Pages → Build and deployment →
+Source: GitHub Actions**.
+
 ## Editing content
 
 All copy, projects, skills and links live in **`src/data/portfolio.ts`** —

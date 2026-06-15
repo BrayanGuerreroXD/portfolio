@@ -13,6 +13,7 @@ import Container from '@mui/material/Container'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
 import { colors } from '../theme'
+import { asset } from '../utils/asset'
 import { navLinks } from '../data/portfolio'
 
 export default function Navbar() {
@@ -63,7 +64,7 @@ export default function Navbar() {
             >
               <Box
                 component="img"
-                src="/assets/logo.png"
+                src={asset('assets/logo.png')}
                 alt="Brayan Guerrero logo"
                 sx={{
                   width: 48,

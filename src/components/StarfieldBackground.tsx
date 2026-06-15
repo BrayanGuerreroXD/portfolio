@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box'
 import { colors } from '../theme'
+import { asset } from '../utils/asset'
 
 /**
  * Fixed full-viewport space backdrop: a blurred nebula image, a fade-to-black
@@ -24,7 +25,7 @@ export default function StarfieldBackground() {
         sx={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: "url('/assets/space-bg.png')",
+          backgroundImage: `url('${asset('assets/space-bg.png')}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: 0.6,

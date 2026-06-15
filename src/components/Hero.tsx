@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import Stack from '@mui/material/Stack'
 import { colors } from '../theme'
+import { asset } from '../utils/asset'
 import { profile } from '../data/portfolio'
 
 export default function Hero() {
@@ -41,7 +42,7 @@ export default function Hero() {
         >
           <Box
             component="img"
-            src="/assets/ufo.png"
+            src={asset('assets/ufo.png')}
             alt=""
             sx={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '50% 70%' }}
           />
@@ -184,7 +185,7 @@ export default function Hero() {
         />
         <Box
           component="img"
-          src="/assets/alien-mascot.png"
+          src={asset('assets/alien-mascot.png')}
           alt="Besgo the alien mascot"
           className="animate-float"
           sx={{
