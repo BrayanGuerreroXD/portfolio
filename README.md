@@ -52,7 +52,7 @@ Contact details currently set:
 
 - **Email:** brayanstewartguor@gmail.com
 - **GitHub:** https://github.com/BrayanGuerreroXD
-- **LinkedIn:** _placeholder_ — update `contact.linkedin` in `src/data/portfolio.ts`.
+- **LinkedIn:** https://www.linkedin.com/in/brayan-stewart-guerrero-ordoñez/
 
 ## Assets
 

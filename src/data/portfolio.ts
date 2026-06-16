@@ -50,8 +50,7 @@ export const profile = {
 export const contact = {
   email: 'brayanstewartguor@gmail.com',
   github: 'https://github.com/BrayanGuerreroXD',
-  // Placeholder — replace with your real LinkedIn URL.
-  linkedin: 'https://www.linkedin.com/in/your-profile',
+  linkedin: 'https://www.linkedin.com/in/brayan-stewart-guerrero-ordo%C3%B1ez/',
 }
 
 export const projects: Project[] = [
